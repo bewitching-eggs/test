@@ -47,6 +47,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Release
+        run: ls -a
+      - name: Release
         run: yarn run pub:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
