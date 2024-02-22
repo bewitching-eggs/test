@@ -26,14 +26,14 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
 
   install-dependencies:
-    needs: check-permissions
+    needs: checkout-code
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
         run: yarn --pure-lockfile
 
   set-npm-token:
-    needs: check-permissions
+    needs: install-dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Set NPM Token
@@ -43,7 +43,7 @@ jobs:
 
   release:
     name: 🚀 Release
-    needs: check-permissions
+    needs: set-npm-token
     runs-on: ubuntu-latest
     steps:
       - name: Release
