@@ -5,14 +5,8 @@ on: workflow_dispatch
 concurrency: ${{ github.workflow }}
 
 jobs:
-  release:
-    name: 🚀 Release
-    env:
-      CI: true
+  check-permissions:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-
     steps:
       - name: Check permissions
         if: ${{ contains(fromJSON('["mrerberg", "Discipulus101", "Makvagabo"]'), github.actor) == false }}
@@ -21,22 +15,41 @@ jobs:
           script: |
             core.setFailed("You don't have permission to run this workflow!");
 
+  checkout-code:
+    needs: check-permissions
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v3
         with:
           ref: 'main'
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
 
+  install-dependencies:
+    needs: checkout-code
+    runs-on: ubuntu-latest
+    steps:
       - name: Install dependencies
         run: yarn --pure-lockfile
 
+  set-npm-token:
+    needs: install-dependencies
+    runs-on: ubuntu-latest
+    steps:
       - name: Set NPM Token
         uses: filipstefansson/set-npm-token-action@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
+  release:
+    name: 🚀 Release
+    needs: set-npm-token
+    runs-on: ubuntu-latest
+    steps:
       - name: Release
-        run: npm run pub:ci
+        run: ls -a
+      - name: Release
+        run: yarn run pub:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
