@@ -1,0 +1,55 @@
+name: Release
+
+on: workflow_dispatch
+
+concurrency: ${{ github.workflow }}
+
+jobs:
+  check-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check permissions
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const permittedUsers = ['mrerberg', 'Discipulus101', 'Makvagabo'];
+            if (!permittedUsers.includes(github.actor)) {
+              core.setFailed("You don't have permission to run this workflow!");
+            }
+
+  checkout-code:
+    needs: check-permissions
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: 'main'
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+  install-dependencies:
+    needs: check-permissions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: yarn --pure-lockfile
+
+  set-npm-token:
+    needs: check-permissions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set NPM Token
+        uses: filipstefansson/set-npm-token-action@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+  release:
+    name: 🚀 Release
+    needs: check-permissions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        run: yarn run pub:ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
