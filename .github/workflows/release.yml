@@ -35,8 +35,24 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - name: Release
-        run: npm run pub:ci
+      # - name: Up versions
+      #   run: npm run packages:version
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      # - name: Release
+      #   run: npm run pub:ci
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Create Release Pull Request or Publish to npm
+        # https://github.com/changesets/action
+        uses: changesets/action@v1
+        with:
+          publish: yarn packages:release
+          version: yarn packages:version
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

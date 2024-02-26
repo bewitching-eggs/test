@@ -16,7 +16,8 @@
     "pub:ci": "changeset publish",
     "changes:add": "changeset add",
     "module:create": "lerna create",
-    "release": "lerna run release"
+    "packages:release": "changeset publish",
+    "packages:version": "changeset version"
   },
   "dependencies": {},
   "devDependencies": {
