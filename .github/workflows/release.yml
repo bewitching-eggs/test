@@ -4,6 +4,11 @@ on: workflow_dispatch
 
 concurrency: ${{ github.workflow }}
 
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
 jobs:
   release:
     name: 🚀 Release
@@ -21,11 +26,13 @@ jobs:
           script: |
             core.setFailed("You don't have permission to run this workflow!");
 
-      - uses: actions/checkout@v3
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v3
         with:
-          ref: 'main'
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          node-version: 20
 
       - name: Install dependencies
         run: yarn --pure-lockfile
