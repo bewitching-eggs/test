@@ -60,8 +60,8 @@ jobs:
         with:
           setupGitUser: true
           createGithubReleases: true
-          publish: yarn packages:publish
-          version: yarn packages:version
+          publish: npm run packages:publish
+          version: npm run packages:version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
