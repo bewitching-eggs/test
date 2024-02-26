@@ -1,7 +1,7 @@
 {
     "name": "@bewitching-eggs/c",
-    "version": "1.0.0",
-    "description": "Common configs123",
+    "version": "2.0.0",
+    "description": "Common configs",
     "homepage": "https://github.com/bewitching-eggs/test#readme",
     "license": "MIT",
     "scripts": {
