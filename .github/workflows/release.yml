@@ -72,10 +72,8 @@ jobs:
 
       - name: Send success notification
         if: steps.changesets.outputs.published == 'true'
-        # You can do something when a publish happens.
         run: echo "published!"
 
       - name: Send fail notification
         if: steps.changesets.outputs.published == 'false'
-        # You can do something when a publish happens.
         run: echo "fail to publish!"
