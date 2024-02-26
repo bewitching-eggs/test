@@ -29,6 +29,14 @@ jobs:
         with:
           node-version: 20
 
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Install dependencies
         run: yarn --pure-lockfile
 
@@ -50,13 +58,19 @@ jobs:
       #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Create Release Pull Request or Publish to npm
+        id: changesets
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
           setupGitUser: true
           createGithubReleases: true
-          publish: yarn packages:release
+          publish: yarn packages:publish
           version: yarn packages:version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Send a Slack notification if a publish happens
+        if: steps.changesets.outputs.published == 'true'
+        # You can do something when a publish happens.
+        run: echo "published!"
