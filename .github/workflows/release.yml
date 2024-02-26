@@ -76,4 +76,4 @@ jobs:
 
       - name: Send fail notification
         if: steps.changesets.outputs.published == 'false'
-        run: echo "fail to publish!"
+        run: echo "{{ steps.changesets.outputs }}"
