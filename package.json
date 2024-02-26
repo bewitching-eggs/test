@@ -3,7 +3,7 @@
   "description": "Utility code",
   "main": "index.js",
   "repository": "git@github.com:bewitching-eggs/test.git",
-  "version": "5.14.0",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "workspaces": [
