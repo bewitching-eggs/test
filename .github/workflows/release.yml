@@ -51,6 +51,8 @@ jobs:
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
+          setupGitUser: true
+          createGithubReleases: true
           publish: yarn packages:release
           version: yarn packages:version
         env:
