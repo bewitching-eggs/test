@@ -1,6 +1,9 @@
 name: Release
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -14,13 +17,6 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: Check permissions
-        if: ${{ contains(fromJSON('["mrerberg", "Discipulus101", "Makvagabo"]'), github.actor) == false }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            core.setFailed("You don't have permission to run this workflow!");
-
       - name: Checkout Repo
         uses: actions/checkout@v3
 
