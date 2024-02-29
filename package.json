@@ -2,7 +2,10 @@
   "name": "@bewitching-eggs/test",
   "description": "Utility code",
   "main": "index.js",
-  "repository": "git@github.com:bewitching-eggs/test.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bewitching-eggs/test.git"
+  },
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
