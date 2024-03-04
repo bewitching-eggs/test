@@ -1,5 +1,11 @@
 # @bewitching-eggs/c
 
+## 2.2.0
+
+### Minor Changes
+
+- 97cff29: add test configs
+
 ## 2.1.0
 
 ### Minor Changes
