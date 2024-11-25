@@ -1,0 +1,20 @@
+{
+    "name": "@bewitching-eggs/types-test",
+    "version": "0.0.1",
+    "description": "Common types",
+    "homepage": "https://github.com/bewitching-eggs/test#readme",
+    "license": "MIT",
+    "scripts": {
+        "test": "echo 'test'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bewitching-eggs/test.git",
+        "directory": "packages/c"
+    },
+    "bugs": {
+        "url": "https://github.com/bewitching-eggs/test/issues"
+    },
+    "dependencies": {},
+    "peerDependencies": {}
+}
