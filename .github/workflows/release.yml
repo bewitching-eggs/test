@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: yarn --pure-lockfile
 
+      - name: Build packages
+        run: yarn lerna run build
+
       # - name: Set NPM Token
       #   uses: filipstefansson/set-npm-token-action@v1
       #   with:
