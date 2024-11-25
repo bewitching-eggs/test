@@ -1,5 +1,11 @@
 # @bewitching-eggs/c
 
+## 2.3.0
+
+### Minor Changes
+
+- e2770ef: 123
+
 ## 2.2.1
 
 ### Patch Changes
