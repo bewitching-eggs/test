@@ -1,6 +1,6 @@
 {
     "name": "@bewitching-eggs/ai-prompts-test",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Common ai-prompts",
     "homepage": "https://github.com/bewitching-eggs/test#readme",
     "license": "MIT",
@@ -21,8 +21,8 @@
         "openai": "^4.24.7"
     },
     "devDependencies": {
-        "@bewitching-eggs/types-test": "0.0.1",
-        "@bewitching-eggs/c": "2.2.1"
+        "@bewitching-eggs/types-test": "1.0.0",
+        "@bewitching-eggs/c": "2.3.0"
     },
     "peerDependencies": {
         "prettier": "^2.8.2",
