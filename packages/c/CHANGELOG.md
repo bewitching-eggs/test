@@ -1,5 +1,17 @@
 # @bewitching-eggs/c
 
+## 2.2.1
+
+### Patch Changes
+
+- 9e1a0d3: fix tsconfig
+
+## 2.2.0
+
+### Minor Changes
+
+- 97cff29: add test configs
+
 ## 2.1.0
 
 ### Minor Changes
