@@ -38,23 +38,6 @@ jobs:
 
       - name: Build packages
         run: yarn lerna run build
-
-      # - name: Set NPM Token
-      #   uses: filipstefansson/set-npm-token-action@v1
-      #   with:
-      #     token: ${{ secrets.NPM_TOKEN }}
-
-      # - name: Up versions
-      #   run: npm run packages:version
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      
-      # - name: Release
-      #   run: npm run pub:ci
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       
       - name: Create Release Pull Request
         id: changesets
