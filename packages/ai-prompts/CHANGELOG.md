@@ -1,5 +1,11 @@
 # @bewitching-eggs/ai-prompts-test
 
+## 1.6.0
+
+### Minor Changes
+
+- 43d3dc5: 222
+
 ## 1.5.0
 
 ### Minor Changes
