@@ -6,6 +6,13 @@ import { Completion, Messages } from "./types";
 
 const ajv = new Ajv();
 
+type PromptConfig = {
+  openai: OpenAI;
+  messages: Messages;
+  model: string;
+  temperature: number;
+};
+
 export class Prompt<Result> {
   private readonly openai: OpenAI;
   private readonly model: string;
@@ -19,15 +26,12 @@ export class Prompt<Result> {
 
   protected valid = false;
 
-  constructor(
-    openai: OpenAI,
-    messages: Messages = [],
-    model: string,
-    temperature: number
-  ) {
+  constructor(config: PromptConfig) {
+    const { openai, model, temperature, messages = [] } = config;
+
+    this.openai = openai;
     this.model = model;
     this.temperature = temperature;
-    this.openai = openai;
     this.messages = messages;
   }
 
@@ -36,8 +40,8 @@ export class Prompt<Result> {
     try {
       this.completion = await this.openai.chat.completions.create({
         model: this.model,
-        messages: this.messages,
         temperature: this.temperature,
+        messages: this.messages,
       });
 
       const [choice] = this.completion.choices;
