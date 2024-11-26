@@ -1,5 +1,13 @@
 # @bewitching-eggs/ai-prompts-test
 
+## 1.3.0
+
+### Minor Changes
+
+- 7c4b0ac: dsad
+- 7c4b0ac: sdad
+- 7c4b0ac: sdadas
+
 ## 1.2.0
 
 ### Minor Changes
