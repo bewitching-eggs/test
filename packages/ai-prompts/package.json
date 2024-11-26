@@ -21,11 +21,11 @@
         "openai": "^4.24.7"
     },
     "devDependencies": {
-        "@bewitching-eggs/types-test": "1.0.0",
-        "@bewitching-eggs/c": "2.3.0"
+        "@bewitching-eggs/types-test": "1.0.0"
     },
     "peerDependencies": {
         "prettier": "^2.8.2",
-        "eslint": "^8.38.0"
+        "eslint": "^8.38.0",
+        "typescript": "^5.6.2"
     }
 }

@@ -1,6 +1,7 @@
 {
-  "extends": "@bewitching-eggs/c/tsconfig/server/tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "outDir": "dist",
     "typeRoots": ["./node_modules/@types"]
   },
   "include": ["src"]
