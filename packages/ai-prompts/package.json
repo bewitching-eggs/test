@@ -4,6 +4,13 @@
     "description": "Common ai-prompts",
     "homepage": "https://github.com/bewitching-eggs/test#readme",
     "license": "MIT",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README",
+        "CHANGELOG"
+    ],
     "scripts": {
         "build:clean": "rm -rf dist",
         "build": "yarn build:clean && tsc"
