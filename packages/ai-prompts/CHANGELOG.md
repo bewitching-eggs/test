@@ -1,5 +1,12 @@
 # @bewitching-eggs/ai-prompts-test
 
+## 1.2.0
+
+### Minor Changes
+
+- 6a2b195: sdad
+- 6a2b195: sdadas
+
 ## 1.1.0
 
 ### Minor Changes
