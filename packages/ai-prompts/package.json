@@ -8,8 +8,8 @@
     "types": "dist/index.d.ts",
     "files": [
         "dist",
-        "README",
-        "CHANGELOG"
+        "CHANGELOG.md",
+        "README.md"
     ],
     "scripts": {
         "build:clean": "rm -rf dist",
