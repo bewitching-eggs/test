@@ -1,5 +1,14 @@
 # @bewitching-eggs/ai-prompts-test
 
+## 1.4.0
+
+### Minor Changes
+
+- b40dcef: dsad
+- b40dcef: 123
+- b40dcef: sdad
+- b40dcef: sdadas
+
 ## 1.3.0
 
 ### Minor Changes
