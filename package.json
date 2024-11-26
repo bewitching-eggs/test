@@ -20,7 +20,8 @@
     "changes:add": "changeset add",
     "module:create": "lerna create",
     "packages:publish": "changeset publish",
-    "packages:version": "changeset version"
+    "packages:version": "changeset version",
+    "build": "yarn lerna run build && changeset version"
   },
   "dependencies": {},
   "devDependencies": {
